@@ -10,7 +10,7 @@
 
 ## 关键业务流程设计
 
-![image-20200901011124493](D:\Environment\CodeForJava\Exp\Exp-Final\image-20200901011124493.png)
+![image-20200901011124493](.\流程.png)
 
 功能实现介绍
 
