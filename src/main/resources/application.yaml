@@ -1,0 +1,44 @@
+#person: {name: blue,age: 3,happy: false,maps: {k1: v1,k2: v2},lists: [cat,dog,girl]}
+spring:
+  profiles:
+    active: dev
+
+---
+server:
+  port: 8080
+spring:
+  profiles: dev
+  datasource:
+      name: test
+      driver-class-name: com.mysql.jdbc.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      url: jdbc:mysql://localhost:3306/Library?characterEncoding=UTF-8&serverTimezone=GMT%2B8
+      username: root
+      password: 123456
+      jpa:
+        hibernate:
+          dll-auto: none
+        properties:
+          hibernate:
+            show_sql: true
+      hikari: #hikari连接池配置
+        minimum-idle: 5 #最小空闲连接数
+    # 空闲连接存活最大时间，默认600000（10分钟）
+        idle-timeout: 180000
+    # 连接池最大连接数，默认是10
+        maximum-pool-size: 10
+    # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+        auto-commit: true
+    # 连接池名称
+        pool-name: MyHikariCP
+    # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+        max-lifetime: 1800000
+    # 数据库连接超时时间,默认30秒，即30000
+        connection-timeout: 30000
+        connection-test-query: SELECT 1
+
+
+
+
+
+---
